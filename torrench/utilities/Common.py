@@ -145,7 +145,7 @@ class Common:
     def show_output(self, masterlist, headers):
         """To display tabular output of torrent search."""
         try:
-            self.output = tabulate(masterlist, headers=headers, tablefmt="grid")
+            self.output = tabulate(masterlist, headers=headers, tablefmt="grid").encode('ascii','replace').decode()
             print("\n%s" %(self.output))
         except KeyboardInterrupt as e:
             self.logger.exception(e)
